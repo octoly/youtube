@@ -1,4 +1,5 @@
 require 'forwardable'
+require 'youtube/error/configuration_error'
 
 module Youtube
   module Configurable

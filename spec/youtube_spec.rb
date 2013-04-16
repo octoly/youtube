@@ -37,5 +37,15 @@ describe Youtube do
         expect(Youtube.instance_variable_get(:"@#{key}")).to eq key
       end
     end
+
+    context "when no credentials are provided" do
+      it "does not raise an exception" do
+        expect {
+          Youtube.configure do |config|
+            config.developer_key = nil
+          end
+        }.to_not raise_exception(Youtube::Error::ConfigurationError)
+      end
+    end
   end
 end
