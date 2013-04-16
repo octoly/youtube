@@ -20,8 +20,7 @@ describe Youtube do
       it "busts the cache" do
         client1 = Youtube.client
         Youtube.configure do |config|
-          config.consumer_key = 'abc'
-          config.consumer_secret = '123'
+          config.developer_key = 'abc'
         end
         client2 = Youtube.client
         expect(client1).not_to eq client2

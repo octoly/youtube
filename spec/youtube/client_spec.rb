@@ -32,7 +32,6 @@ describe Youtube::Client do
       before do
         @configuration = {
           developer_key: 'CK',
-          identity_map: ::Hash,
         }
       end
 
