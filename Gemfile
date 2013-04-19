@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rake'
+gem 'rake', "~> 10.0.4"
 gem 'yard'
 
 group :development do
