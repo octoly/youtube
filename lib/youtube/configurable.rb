@@ -5,6 +5,7 @@ module Youtube
   module Configurable
     extend Forwardable
     attr_writer :developer_key
+    attr_accessor :endpoint_options, :connection_options, :identity_map, :middleware
     def_delegator :options, :hash
 
     class << self
@@ -12,6 +13,10 @@ module Youtube
       def keys
         @keys ||= [
           :developer_key,
+          :endpoint_options,
+          :connection_options,
+          :identity_map,
+          :middleware,
         ]
       end
 
@@ -29,6 +34,7 @@ module Youtube
       end
       self
     end
+    alias setup reset!
 
   private
 

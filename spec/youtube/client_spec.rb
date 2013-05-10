@@ -31,7 +31,11 @@ describe Youtube::Client do
 
       before do
         @configuration = {
-          developer_key: 'CK',
+          connection_options: {:timeout => 10},
+          developer_key: 'DK',
+          endpoint_options: :v3,
+          middleware: Proc.new{},
+          identity_map: ::Hash,
         }
       end
 
