@@ -5,7 +5,7 @@ require 'youtube/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "youtube"
-  spec.version       = Youtube::VERSION
+  spec.version       = Youtube::Version
   spec.authors       = ["Fabien G."]
   spec.email         = ["fabien@sent.com"]
   spec.description   = %q{A Ruby interface to the Youtube API.}
