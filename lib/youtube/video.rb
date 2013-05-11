@@ -1,3 +1,4 @@
+require 'time'
 require 'youtube/identity'
 
 module Youtube
@@ -20,47 +21,79 @@ module Youtube
     end
 
     def published_at
-      @attrs[:v3][:items][0][:snippet][:publishedAt]
+      Time.parse(@attrs[:v3][:items][0][:snippet][:publishedAt])
     end
 
     def updated_at
-      @attrs[:v2]['entry']['updated']
+      Time.parse(@attrs[:v2]['entry']['updated'])
     end
 
     def category_id
-      @attrs[:v3][:items][0][:snippet][:categoryId]
+      @attrs[:v3][:items][0][:snippet][:categoryId].to_i
     end
 
     def views_count
-      @attrs[:v3][:items][0][:statistics][:viewCount]
+      if @attrs[:v3][:items][0][:statistics].nil?
+        0
+      else
+        @attrs[:v3][:items][0][:statistics][:viewCount]
+      end
     end
 
     def likes_count
-      @attrs[:v3][:items][0][:statistics][:likeCount]
+      if @attrs[:v3][:items][0][:statistics].nil?
+        0
+      else
+        @attrs[:v3][:items][0][:statistics][:likeCount]
+      end
     end
 
     def dislikes_count
-      @attrs[:v3][:items][0][:statistics][:dislikeCount]
+      if @attrs[:v3][:items][0][:statistics].nil?
+        0
+      else
+        @attrs[:v3][:items][0][:statistics][:dislikeCount]
+      end
     end
 
     def favorites_count
-      @attrs[:v3][:items][0][:statistics][:favoriteCount]
+      if @attrs[:v3][:items][0][:statistics].nil?
+        0
+      else
+        @attrs[:v3][:items][0][:statistics][:favoriteCount]
+      end
     end
 
     def comments_count
-      @attrs[:v3][:items][0][:statistics][:commentCount]
+      if @attrs[:v3][:items][0][:statistics].nil?
+        0
+      else
+        @attrs[:v3][:items][0][:statistics][:commentCount]
+      end
     end
 
     def upload_status
-      @attrs[:v3][:items][0][:status][:uploadStatus]
+      if @attrs[:v3][:items][0][:status].nil?
+        'unknow'
+      else
+        @attrs[:v3][:items][0][:status][:uploadStatus]
+      end
     end
 
     def privacy_status
-      @attrs[:v3][:items][0][:status][:privacyStatus]
+      if @attrs[:v3][:items][0][:status].nil?
+        'unknow'
+      else
+        @attrs[:v3][:items][0][:status][:privacyStatus]
+      end
     end
 
     def topic_ids
-      @attrs[:v3][:items][0][:topicDetails][:topicIds]
+      if @attrs[:v3][:items][0][:topicDetails].nil?
+        []
+      else
+        @attrs[:v3][:items][0][:topicDetails][:topicIds]
+      end
     end
   end
 end

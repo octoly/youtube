@@ -8,7 +8,7 @@ describe Youtube::API::Videos do
 
   describe '#list' do
     it "returns a Video" do
-      video = @client.video('ywBRKW93m0I')
+      video = @client.video('AVjvsgcBKrs')
       expect(video).to be_a Youtube::Video
     end
   end
