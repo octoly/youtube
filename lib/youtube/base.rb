@@ -11,6 +11,14 @@ module Youtube
     # Returns a new object based on the response hash
     #
     # @param response [Hash]
+    # @return [Twitter::Base]
+    def self.from_response(response={})
+      fetch_or_new(response[:body])
+    end
+
+    # Returns a new object based on the response hash
+    #
+    # @param response [Hash]
     # @return [Youtube::Base]
     def self.from_responses(responses = {})
       clean_responses = Hash.new
