@@ -10,7 +10,7 @@ module Youtube
         object_from_response(
           Youtube::SearchResults,
           :get,
-          "/youtube/v3/search?part=id",
+          "/youtube/v3/search?part=id%2Csnippet",
           options
         )
       end
