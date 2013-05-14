@@ -36,7 +36,7 @@ module Youtube
       if @attrs[:v3][:items][0][:statistics].nil?
         0
       else
-        @attrs[:v3][:items][0][:statistics][:viewCount]
+        @attrs[:v3][:items][0][:statistics][:viewCount].to_i
       end
     end
 
@@ -44,7 +44,7 @@ module Youtube
       if @attrs[:v3][:items][0][:statistics].nil?
         0
       else
-        @attrs[:v3][:items][0][:statistics][:likeCount]
+        @attrs[:v3][:items][0][:statistics][:likeCount].to_i
       end
     end
 
@@ -52,7 +52,7 @@ module Youtube
       if @attrs[:v3][:items][0][:statistics].nil?
         0
       else
-        @attrs[:v3][:items][0][:statistics][:dislikeCount]
+        @attrs[:v3][:items][0][:statistics][:dislikeCount].to_i
       end
     end
 
@@ -60,7 +60,7 @@ module Youtube
       if @attrs[:v3][:items][0][:statistics].nil?
         0
       else
-        @attrs[:v3][:items][0][:statistics][:favoriteCount]
+        @attrs[:v3][:items][0][:statistics][:favoriteCount].to_i
       end
     end
 
@@ -68,7 +68,7 @@ module Youtube
       if @attrs[:v3][:items][0][:statistics].nil?
         0
       else
-        @attrs[:v3][:items][0][:statistics][:commentCount]
+        @attrs[:v3][:items][0][:statistics][:commentCount].to_i
       end
     end
 
