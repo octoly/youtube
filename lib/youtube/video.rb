@@ -24,10 +24,6 @@ module Youtube
       Time.parse(@attrs[:v3][:items][0][:snippet][:publishedAt])
     end
 
-    def updated_at
-      Time.parse(@attrs[:v2]['entry']['updated'])
-    end
-
     def category_id
       @attrs[:v3][:items][0][:snippet][:categoryId].to_i
     end

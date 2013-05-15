@@ -49,12 +49,6 @@ describe Youtube::Video do
     end
   end
 
-  describe '#updated_at' do
-    it 'returns a Time' do
-      expect(@video.updated_at).to be_a Time
-    end
-  end
-
   describe '#category_id' do
     it 'returns a Integer' do
       expect(@video.category_id).to be_a Integer
