@@ -101,8 +101,15 @@ describe Youtube::Video do
   end
 
   describe '#topic_ids' do
-    it 'returns a String' do
+    it 'returns an Array' do
       expect(@video.topic_ids).to be_a Array
     end
   end
+
+  describe '#duration' do
+    it 'return an Integer' do
+      expect(@video.duration).to be_a Integer
+    end
+  end
+
 end

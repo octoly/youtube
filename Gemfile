@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', "~> 10.0.4"
 gem 'yard'
+gem 'iso8601'
 
 group :development do
   gem 'pry'

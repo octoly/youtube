@@ -1,4 +1,5 @@
 require 'time'
+require 'iso8601'
 require 'youtube/identity'
 
 module Youtube
@@ -91,5 +92,14 @@ module Youtube
         @attrs[:v3][:items][0][:topicDetails][:topicIds]
       end
     end
+
+    def duration
+      if @attrs[:v3][:items][0][:contentDetails].nil?
+        'unknow'
+      else
+        ISO8601::Duration.new(@attrs[:v3][:items][0][:contentDetails][:duration]).to_seconds.to_i
+      end
+    end
+
   end
 end
