@@ -15,7 +15,7 @@ module Youtube
       #   Youtube.video('ywBRKW93m0I')
       #
       def video(id, options = {})
-        object_from_responses(
+        video = object_from_responses(
           Youtube::Video,
           :get,
           {
@@ -25,6 +25,7 @@ module Youtube
           options
         )
 #        object_from_responses(Youtube::Video, :get, "/feeds/api/videos/#{id}?v=2", options)
+        video.exists? ? video : nil
       end
     end
   end

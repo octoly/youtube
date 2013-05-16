@@ -7,6 +7,19 @@ describe Youtube::Video do
     @video = @client.video('AVjvsgcBKrs')
   end
 
+  describe 'video' do
+    it 'returns nil' do
+      @video = @client.video('not-valid-id')
+      expect(@video).to be_nil
+    end
+  end
+
+  describe '#exists?' do
+    it 'returns true' do
+      expect(@video.exists?).to be_true
+    end
+  end
+
   describe '#id' do
     it 'returns a String' do
       expect(@video.id).to be_a String

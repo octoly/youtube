@@ -6,6 +6,6 @@ module Youtube
     #
     # @param attrs [Hash]
     # @raise [ArgumentError] Error raised when supplied argument is missing an :id key.
-    # @return [Twitter::Identity]
+    # @return [Youtube::Identity]
   end
 end

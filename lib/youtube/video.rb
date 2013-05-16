@@ -5,6 +5,10 @@ require 'youtube/identity'
 module Youtube
   class Video < Youtube::Identity
 
+    def exists?
+      @attrs[:v3][:items][0] ? true : false
+    end
+
     def id
       @attrs[:v3][:items][0][:id]
     end
