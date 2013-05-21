@@ -4,8 +4,9 @@ module Youtube
   class SearchResults < Youtube::Base
 
     def results
-      @results ||= Array(@attrs[:items]).map do |video|
-        video[:id][:videoId]
+      @results ||= Array(@attrs[:items]).map do |item|
+        item_kind = item[:id][:kind].split('#').last
+        item[:id]["#{item_kind}Id".to_sym]
       end
     end
 
@@ -14,7 +15,12 @@ module Youtube
     end
 
     def last_published_at
-      Time.parse(@attrs[:items].last[:snippet][:publishedAt])
+      if @attrs[:items] and @attrs[:items].any?
+        Time.parse(@attrs[:items].last[:snippet][:publishedAt])
+      else
+        nil
+      end
     end
+
   end
 end
