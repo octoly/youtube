@@ -19,7 +19,7 @@ module Youtube
     end
 
     def last_published_at
-      if @attrs[:items] and @attrs[:items].any? > 0
+      if @attrs[:items] and @attrs[:items].any?
         Time.parse(@attrs[:items].last[:snippet][:publishedAt])
       else
         nil
