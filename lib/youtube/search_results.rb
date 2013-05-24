@@ -14,8 +14,12 @@ module Youtube
       @attrs[:nextPageToken]
     end
 
+    def total_results
+      @attrs[:pageInfo][:totalResults]
+    end
+
     def last_published_at
-      if @attrs[:items] and @attrs[:items].any?
+      if total_results > 0
         Time.parse(@attrs[:items].last[:snippet][:publishedAt])
       else
         nil

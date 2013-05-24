@@ -27,6 +27,10 @@ describe Youtube::API::Search do
         search = @client.search(type: 'video', q: 'rails')
         expect(search.last_published_at).to be_a Time
       end
+      it 'returns the total results' do
+        search = @client.search(type: 'video', q: 'rails')
+        expect(search.total_results).to be_an Integer
+      end
     end
 
     context 'when search API with no results' do
@@ -37,6 +41,10 @@ describe Youtube::API::Search do
       it 'returns nil for last published_at' do
         search = @client.search(type: 'video', q: 'viklgrbwdvojklbfwd')
         expect(search.last_published_at).to be_nil
+      end
+      it 'returns the total results' do
+        search = @client.search(type: 'video', q: 'viklgrbwdvojklbfwd')
+        expect(search.total_results == 0).to be_true
       end
     end
 
