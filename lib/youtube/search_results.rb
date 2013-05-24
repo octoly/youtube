@@ -15,11 +15,11 @@ module Youtube
     end
 
     def total_results
-      @attrs[:pageInfo][:totalResults]
+      @attrs[:pageInfo] ? @attrs[:pageInfo][:totalResults].to_i : 0
     end
 
     def last_published_at
-      if total_results > 0
+      if @attrs[:items] and @attrs[:items].any? > 0
         Time.parse(@attrs[:items].last[:snippet][:publishedAt])
       else
         nil
