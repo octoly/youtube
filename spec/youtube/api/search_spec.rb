@@ -19,6 +19,12 @@ describe Youtube::API::Search do
         search = @client.search(type: 'video', q: 'rails', maxResults: 50)
         expect(search.results.count == 50).to be_true
       end
+      it 'eturns Video IDs related to a query ordered by date' do
+        search = @client.search(type: 'video', q: 'rails', order: 'date')
+        expect(search).to be_a Youtube::SearchResults
+        expect(search.results).to be_an Array
+        expect(search.results.first).to be_a String
+      end
       it 'returns nextPageToken as a String' do
         search = @client.search(type: 'video', q: 'rails')
         expect(search.next_page_token).to be_a String
