@@ -105,5 +105,13 @@ module Youtube
       end
     end
 
+    def public_stats_viewable
+      if @attrs[:v3][:items][0][:status].nil?
+        false
+      else
+        @attrs[:v3][:items][0][:status][:publicStatsViewable]
+      end
+    end
+
   end
 end

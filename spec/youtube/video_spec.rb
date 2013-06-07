@@ -125,4 +125,9 @@ describe Youtube::Video do
     end
   end
 
+  describe '#public_stats_viewable' do
+    it 'return true or false' do
+      expect([true, false]).to include(@video.public_stats_viewable)
+    end
+  end
 end
