@@ -68,6 +68,12 @@ describe Youtube::Channel do
     end
   end
 
+  describe '#videos_count' do
+    it 'returns an Integer' do
+      expect(@channel.videos_count).to be_a Integer
+    end
+  end
+
   describe '#subscribers_count' do
     it 'returns an Integer' do
       expect(@channel.subscribers_count).to be_a Integer

@@ -37,6 +37,14 @@ module Youtube
       end
     end
 
+    def videos_count
+      if @attrs[:v3][:items][0][:statistics].nil?
+        0
+      else
+        @attrs[:v3][:items][0][:statistics][:videoCount].to_i
+      end
+    end
+
     def subscribers_count
       if @attrs[:v3][:items][0][:statistics].nil?
         0
