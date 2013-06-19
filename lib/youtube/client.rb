@@ -1,6 +1,7 @@
 require 'faraday'
 require 'youtube/api/search'
 require 'youtube/api/videos'
+require 'youtube/api/channels'
 require 'youtube/configurable'
 require 'youtube/error/client_error'
 require 'youtube/error/decode_error'
@@ -9,6 +10,7 @@ module Youtube
   class Client
     include Youtube::API::Search
     include Youtube::API::Videos
+    include Youtube::API::Channels
     include Youtube::Configurable
 
     def initialize(options={})

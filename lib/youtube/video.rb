@@ -29,6 +29,10 @@ module Youtube
       Time.parse(@attrs[:v3][:items][0][:snippet][:publishedAt])
     end
 
+    def thumbnails
+      @attrs[:v3][:items][0][:snippet][:thumbnails] || {}
+    end
+
     def category_id
       @attrs[:v3][:items][0][:snippet][:categoryId].to_i
     end
@@ -93,7 +97,7 @@ module Youtube
       if @attrs[:v3][:items][0][:topicDetails].nil?
         []
       else
-        @attrs[:v3][:items][0][:topicDetails][:topicIds]
+        @attrs[:v3][:items][0][:topicDetails][:topicIds] || []
       end
     end
 
@@ -109,7 +113,7 @@ module Youtube
       if @attrs[:v3][:items][0][:status].nil?
         false
       else
-        @attrs[:v3][:items][0][:status][:publicStatsViewable]
+        @attrs[:v3][:items][0][:status][:publicStatsViewable] || false
       end
     end
 

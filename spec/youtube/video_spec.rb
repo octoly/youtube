@@ -62,8 +62,14 @@ describe Youtube::Video do
     end
   end
 
+  describe '#thumbnails' do
+    it 'returns a Hash' do
+      expect(@video.thumbnails).to be_a Hash
+    end
+  end
+
   describe '#category_id' do
-    it 'returns a Integer' do
+    it 'returns an Integer' do
       expect(@video.category_id).to be_a Integer
     end
     it 'returns 27 (Education)' do
@@ -72,31 +78,31 @@ describe Youtube::Video do
   end
 
   describe '#views_count' do
-    it 'returns a Integer' do
+    it 'returns an Integer' do
       expect(@video.views_count).to be_a Integer
     end
   end
 
   describe '#likes_count' do
-    it 'returns a Integer' do
+    it 'returns an Integer' do
       expect(@video.likes_count).to be_a Integer
     end
   end
 
   describe '#dislikes_count' do
-    it 'returns a Integer' do
+    it 'returns an Integer' do
       expect(@video.dislikes_count).to be_a Integer
     end
   end
 
   describe '#favorites_count' do
-    it 'returns a Integer' do
+    it 'returns an Integer' do
       expect(@video.favorites_count).to be_a Integer
     end
   end
 
   describe '#comments_count' do
-    it 'returns a Integer' do
+    it 'returns an Integer' do
       expect(@video.comments_count).to be_a Integer
     end
   end
