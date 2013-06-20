@@ -6,7 +6,7 @@ module Youtube
   class Video < Youtube::Identity
 
     def exists?
-      (@attrs[:v3][:items] and @attrs[:v3][:items][0]) ? true : false
+      @attrs[:v3][:items].try(:first) ? true : false
     end
 
     def id
