@@ -6,7 +6,7 @@ module Youtube
     module Search
       include Youtube::API::Utils
 
-      def search(options={})
+      def search(options = {})
         object_from_response(
           Youtube::SearchResults,
           :get,

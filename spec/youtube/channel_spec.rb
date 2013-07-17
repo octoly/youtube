@@ -4,12 +4,12 @@ describe Youtube::Channel do
 
   before do
     @client = Youtube::Client.new(developer_key: 'AIzaSyCIzbuKiXJp4RA9dLlWTarjcH-Eurgzq6U')
-    @channel = @client.channel('UCMmADDDgI-dXaPGoIZ3qIsQ')
+    @channel = @client.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
   end
 
   describe 'channel' do
     it 'returns nil' do
-      @channel = @client.channel('not-valid-id')
+      @channel = @client.channel(id: 'not-valid-id')
       expect(@channel).to be_nil
     end
   end
@@ -55,7 +55,7 @@ describe Youtube::Channel do
 
   describe '#thumbnails' do
     before do
-      @channel = @client.channel('UCLCmJiSbIoa_ZFiBOBDf6ZA')
+      @channel = @client.channel(id: 'UCLCmJiSbIoa_ZFiBOBDf6ZA')
     end
     it 'returns a Hash' do
       expect(@channel.thumbnails).to be_a Hash
@@ -94,7 +94,7 @@ describe Youtube::Channel do
 
   describe '#keywords' do
     before do
-      @channel = @client.channel('UCLCmJiSbIoa_ZFiBOBDf6ZA')
+      @channel = @client.channel(id: 'UCLCmJiSbIoa_ZFiBOBDf6ZA')
     end
     it 'returns a String' do
       expect(@channel.keywords).to be_a String

@@ -8,7 +8,7 @@ describe Youtube::API::Channels do
 
   describe '#list' do
     it "returns a Channel" do
-      channel = @client.channel('UCMmADDDgI-dXaPGoIZ3qIsQ')
+      channel = @client.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
       expect(channel).to be_a Youtube::Channel
     end
   end

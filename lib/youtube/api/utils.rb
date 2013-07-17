@@ -12,7 +12,7 @@ module Youtube
       def object_from_responses(klass, request_method, paths, options={})
         responses = Hash.new
         paths.each do |key, path|
-          responses[key.to_sym] = send(request_method.to_sym, path, { endpoint: key })
+          responses[key.to_sym] = send(request_method.to_sym, path, options.merge(endpoint: key))
         end
         klass.from_responses(responses)
       end

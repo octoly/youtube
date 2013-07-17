@@ -4,12 +4,12 @@ describe Youtube::Video do
 
   before do
     @client = Youtube::Client.new(developer_key: 'AIzaSyCIzbuKiXJp4RA9dLlWTarjcH-Eurgzq6U')
-    @video = @client.video('AVjvsgcBKrs')
+    @video = @client.video(id: 'AVjvsgcBKrs')
   end
 
   describe 'video' do
     it 'returns nil' do
-      @video = @client.video('not-valid-id')
+      @video = @client.video(id: 'not-valid-id')
       expect(@video).to be_nil
     end
   end

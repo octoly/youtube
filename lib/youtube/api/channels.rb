@@ -14,13 +14,13 @@ module Youtube
       # @example Return the Channel with the ID UCMmADDDgI-dXaPGoIZ3qIsQ
       #   Youtube.channel('UCMmADDDgI-dXaPGoIZ3qIsQ')
       #
-      def channel(id, options = {})
+      def channel(options = {})
         channel = object_from_responses(
           Youtube::Channel,
           :get,
           {
             # v2: "/feeds/api/users/#{id}?v=2",
-            v3: "/youtube/v3/channels?part=id%2C+snippet%2C+contentDetails%2C+brandingSettings%2C+statistics%2C+invideoPromotion%2C+topicDetails&id=#{id}",
+            v3: "/youtube/v3/channels?part=id%2C+snippet%2C+contentDetails%2C+brandingSettings%2C+statistics%2C+invideoPromotion%2C+topicDetails",
           },
           options
         )
