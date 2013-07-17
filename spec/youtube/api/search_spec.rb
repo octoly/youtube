@@ -19,7 +19,7 @@ describe Youtube::API::Search do
         search = @client.search(type: 'video', q: 'rails', maxResults: 50)
         expect(search.results.count == 50).to be_true
       end
-      it 'eturns Video IDs related to a query ordered by date' do
+      it 'returns Video IDs related to a query ordered by date' do
         search = @client.search(type: 'video', q: 'rails', order: 'date')
         expect(search).to be_a Youtube::SearchResults
         expect(search.results).to be_an Array
