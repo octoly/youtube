@@ -11,5 +11,10 @@ describe Youtube::API::Channels do
       channel = @client.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
       expect(channel).to be_a Youtube::Channel
     end
+
+    it "returns a Channel with forUsername" do
+      channel = @client.channel(forUsername: 'brandedchanneldemo')
+      expect(channel).to be_a Youtube::Channel
+    end
   end
 end
