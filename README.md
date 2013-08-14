@@ -9,9 +9,13 @@ A Ruby interface to the Youtube API
 
 ## Installation
 
+```ruby
 gem 'youtube', git: 'https://github.com/copyrightly/youtube'
+```
 
 ## Usage
 
+```ruby
 @yt = Youtube::Client.new(developer_key: 'youtube_api_key')
 @video = @yt.video(id: 'fD1eRbq09yU')
+```
