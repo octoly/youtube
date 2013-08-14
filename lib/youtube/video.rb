@@ -38,43 +38,23 @@ module Youtube
     end
 
     def views_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:viewCount].to_i
-      end
+      statistics_count :viewCount
     end
 
     def likes_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:likeCount].to_i
-      end
+      statistics_count :likeCount
     end
 
     def dislikes_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:dislikeCount].to_i
-      end
+      statistics_count :dislikeCount
     end
 
     def favorites_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:favoriteCount].to_i
-      end
+      statistics_count :favoriteCount
     end
 
     def comments_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:commentCount].to_i
-      end
+      statistics_count :commentCount
     end
 
     def upload_status
