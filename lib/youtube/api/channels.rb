@@ -12,7 +12,7 @@ module Youtube
       # @return [Youtube::Channel] The requested Channel.
       # @param id [String] A Channel ID
       # @example Return the Channel with the ID UCMmADDDgI-dXaPGoIZ3qIsQ
-      #   Youtube.channel('UCMmADDDgI-dXaPGoIZ3qIsQ')
+      #   Youtube.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
       #
       def channel(options = {})
         channel = object_from_responses(
