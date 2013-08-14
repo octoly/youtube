@@ -12,7 +12,7 @@ module Youtube
       # @return [Youtube::Video] The requested Video.
       # @param id [String] A Video ID
       # @example Return the Video with the ID ywBRKW93m0I
-      #   Youtube.video('ywBRKW93m0I')
+      #   Youtube.video(id: 'ywBRKW93m0I')
       #
       def video(options = {})
         video = object_from_responses(
