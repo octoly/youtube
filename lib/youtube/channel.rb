@@ -30,35 +30,19 @@ module Youtube
     end
 
     def views_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:viewCount].to_i
-      end
+      statistics_count :viewCount
     end
 
     def videos_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:videoCount].to_i
-      end
+      statistics_count :videoCount
     end
 
     def subscribers_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:subscriberCount].to_i
-      end
+      statistics_count :subscriberCount
     end
 
     def comments_count
-      if @attrs[:v3][:items][0][:statistics].nil?
-        0
-      else
-        @attrs[:v3][:items][0][:statistics][:commentCount].to_i
-      end
+      statistics_count :commentCount
     end
 
     def topic_ids
