@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["fabien@sent.com", "olivier.derobert@gmail.com"]
   spec.description   = %q{A Ruby interface to the Youtube API.}
   spec.summary       = spec.description
-  spec.homepage      = "http://copyrightly.github.com/youtube/"
+  spec.homepage      = "http://octoly.github.com/youtube/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
