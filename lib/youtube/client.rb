@@ -42,10 +42,10 @@ module Youtube
       path = "#{path}&key=#{@developer_key}"
       request_setup = request_setup(method, path, params)
       connection.send(method.to_sym, path, params, &request_setup).env
-    rescue Faraday::Error::ClientError
-      raise Youtube::Error::ClientError
-    rescue MultiJson::DecodeError
-      raise Youtube::Error::DecodeError
+#    rescue Faraday::Error::ClientError
+#      raise Youtube::Error::ClientError
+#    rescue MultiJson::DecodeError
+#      raise Youtube::Error::DecodeError
     end
 
     # Returns a Faraday::Connection object
