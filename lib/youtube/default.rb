@@ -17,8 +17,8 @@ module Youtube
         :user_agent => "Youtube Ruby Gem #{Youtube::Version}",
       },
       :request => {
-        :open_timeout => 5,
-        :timeout => 10,
+        :open_timeout => 50,
+        :timeout => 500,
       },
       :ssl => {
         :verify => false
