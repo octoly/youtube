@@ -26,8 +26,6 @@ module Youtube
     } unless defined? Youtube::Default::CONNECTION_OPTIONS
     IDENTITY_MAP = false unless defined? Youtube::Default::IDENTITY_MAP
     MIDDLEWARE = Faraday::Builder.new do |builder|
-      # Checks for files in the payload
-      builder.use Faraday::Request::Multipart
       # Convert request params to "www-form-urlencoded"
       builder.use Faraday::Request::UrlEncoded
       # Handle 4xx server responses
