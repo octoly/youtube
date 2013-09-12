@@ -7,6 +7,7 @@ gem 'iso8601'
 group :development do
   gem 'pry'
   gem 'pry-debugger'
+  gem 'json', '~> 1.7.7'
 end
 
 group :test do
