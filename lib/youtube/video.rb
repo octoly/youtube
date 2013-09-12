@@ -6,35 +6,35 @@ module Youtube
   class Video < Youtube::Identity
 
     def exists?
-      (@attrs[:v3][:items] and @attrs[:v3][:items][0]) ? true : false
+      (@attrs[:v3][:items] and v3_item_attrs) ? true : false
     end
 
     def id
-      @attrs[:v3][:items][0][:id]
+      v3_item_attrs[:id]
     end
 
     def channel_id
-      @attrs[:v3][:items][0][:snippet][:channelId]
+      v3_item_attrs[:snippet][:channelId]
     end
 
     def title
-      @attrs[:v3][:items][0][:snippet][:title]
+      v3_item_attrs[:snippet][:title]
     end
 
     def description
-      @attrs[:v3][:items][0][:snippet][:description]
+      v3_item_attrs[:snippet][:description]
     end
 
     def published_at
-      Time.parse(@attrs[:v3][:items][0][:snippet][:publishedAt])
+      Time.parse(v3_item_attrs[:snippet][:publishedAt])
     end
 
     def thumbnails
-      @attrs[:v3][:items][0][:snippet][:thumbnails] || {}
+      v3_item_attrs[:snippet][:thumbnails] || {}
     end
 
     def category_id
-      @attrs[:v3][:items][0][:snippet][:categoryId].to_i
+      v3_item_attrs[:snippet][:categoryId].to_i
     end
 
     def views_count
@@ -58,43 +58,31 @@ module Youtube
     end
 
     def upload_status
-      if @attrs[:v3][:items][0][:status].nil?
-        'unknow'
-      else
-        @attrs[:v3][:items][0][:status][:uploadStatus]
-      end
+      v3_item_attrs[:status].nil? ? 'unknow' : v3_item_attrs[:status][:uploadStatus]
     end
 
     def privacy_status
-      if @attrs[:v3][:items][0][:status].nil?
-        'unknow'
-      else
-        @attrs[:v3][:items][0][:status][:privacyStatus]
-      end
+      v3_item_attrs[:status].nil? ? 'unknow' : v3_item_attrs[:status][:privacyStatus]
     end
 
     def topic_ids
-      if @attrs[:v3][:items][0][:topicDetails].nil?
-        []
-      else
-        @attrs[:v3][:items][0][:topicDetails][:topicIds] || []
-      end
+      v3_item_attrs[:topicDetails].nil? ? [] : (v3_item_attrs[:topicDetails][:topicIds] || [])
     end
 
     def duration
-      if @attrs[:v3][:items][0][:contentDetails].nil?
-        'unknow'
-      else
-        ISO8601::Duration.new(@attrs[:v3][:items][0][:contentDetails][:duration]).to_seconds.to_i
-      end
+      v3_item_attrs[:contentDetails].nil? ? 'unknow' : ISO8601::Duration.new(v3_item_attrs[:contentDetails][:duration]).to_seconds.to_i
     end
 
     def public_stats_viewable
-      if @attrs[:v3][:items][0][:status].nil?
-        false
-      else
-        @attrs[:v3][:items][0][:status][:publicStatsViewable] || false
-      end
+      v3_item_attrs[:status].nil? ? false : (v3_item_attrs[:status][:publicStatsViewable] || false)
+    end
+
+    def relevant_topic_ids
+      v3_item_attrs[:topicDetails].nil? ? [] : (v3_item_attrs[:topicDetails][:relevantTopicIds] || [])
+    end
+
+    def region_restriction
+      v3_item_attrs[:contentDetails].nil? ? {} : (v3_item_attrs[:contentDetails][:regionRestriction] || {})
     end
 
   end

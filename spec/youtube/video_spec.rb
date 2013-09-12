@@ -136,4 +136,17 @@ describe Youtube::Video do
       expect([true, false]).to include(@video.public_stats_viewable)
     end
   end
+
+  describe '#relevant_topic_ids' do
+    it 'return an array' do
+      expect(@video.relevant_topic_ids).to be_an Array
+    end
+  end
+
+  describe '#region_restriction' do
+    it 'return an array' do
+      expect(@video.region_restriction).to be_a Hash
+    end
+  end
+
 end

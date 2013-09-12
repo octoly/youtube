@@ -6,27 +6,27 @@ module Youtube
   class Channel < Youtube::Identity
 
     def exists?
-      (@attrs[:v3][:items] and @attrs[:v3][:items][0]) ? true : false
+      (@attrs[:v3][:items] and v3_item_attrs) ? true : false
     end
 
     def id
-      @attrs[:v3][:items][0][:id]
+      v3_item_attrs[:id]
     end
 
     def title
-      @attrs[:v3][:items][0][:snippet][:title]
+      v3_item_attrs[:snippet][:title]
     end
 
     def description
-      @attrs[:v3][:items][0][:snippet][:description]
+      v3_item_attrs[:snippet][:description]
     end
 
     def published_at
-      Time.parse(@attrs[:v3][:items][0][:snippet][:publishedAt])
+      Time.parse(v3_item_attrs[:snippet][:publishedAt])
     end
 
     def thumbnails
-      @attrs[:v3][:items][0][:snippet][:thumbnails] || {}
+      v3_item_attrs[:snippet][:thumbnails] || {}
     end
 
     def views_count
@@ -46,26 +46,22 @@ module Youtube
     end
 
     def topic_ids
-      if @attrs[:v3][:items][0][:topicDetails].nil?
-        []
-      else
-        @attrs[:v3][:items][0][:topicDetails][:topicIds] || []
-      end
+      v3_item_attrs[:topicDetails].nil? ? [] : (v3_item_attrs[:topicDetails][:topicIds] || [])
     end
 
     def keywords
-      if @attrs[:v3][:items][0][:brandingSettings].nil? or @attrs[:v3][:items][0][:brandingSettings][:channel].nil?
+      if v3_item_attrs[:brandingSettings].nil? or v3_item_attrs[:brandingSettings][:channel].nil?
         nil
       else
-        @attrs[:v3][:items][0][:brandingSettings][:channel][:keywords]
+        v3_item_attrs[:brandingSettings][:channel][:keywords]
       end
     end
 
     def featured_channels_urls
-      if @attrs[:v3][:items][0][:brandingSettings].nil? or @attrs[:v3][:items][0][:brandingSettings][:channel].nil?
+      if v3_item_attrs[:brandingSettings].nil? or v3_item_attrs[:brandingSettings][:channel].nil?
         []
       else
-        @attrs[:v3][:items][0][:brandingSettings][:channel][:featuredChannelsUrls] || []
+        v3_item_attrs[:brandingSettings][:channel][:featuredChannelsUrls] || []
       end
     end
 
