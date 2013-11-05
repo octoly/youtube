@@ -29,6 +29,10 @@ module Youtube
       v3_item_attrs[:snippet][:thumbnails] || {}
     end
 
+    def image
+      v3_item_attrs[:brandingSettings][:image] || {}
+    end
+
     def views_count
       statistics_count :viewCount
     end
