@@ -30,7 +30,7 @@ module Youtube
     end
 
     def image
-      v3_item_attrs[:brandingSettings][:image] || {}
+      v3_item_attrs[:brandingSettings].nil? ? {} : (v3_item_attrs[:brandingSettings][:image] || {})
     end
 
     def views_count

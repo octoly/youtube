@@ -149,4 +149,30 @@ describe Youtube::Video do
     end
   end
 
+  describe '#live_streaming_details' do
+    it 'return nil' do
+      expect(@video.live_streaming_details).to be_nil
+    end
+  end
+
+  describe '#live?' do
+    it 'return false' do
+      expect(@video.live?).to be_false
+    end
+  end
+
+  describe '#live_streaming_details present' do
+    it 'return an array' do
+      @video = @client.video(id: 'l-M258K_Yac')
+      expect(@video.live_streaming_details).to be_a Hash
+    end
+  end
+
+  describe '#live? present' do
+    it 'return true' do
+      @video = @client.video(id: 'l-M258K_Yac')
+      expect(@video.live?).to be_true
+    end
+  end
+
 end

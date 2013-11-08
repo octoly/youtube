@@ -20,7 +20,7 @@ module Youtube
           :get,
           {
             # v2: "/feeds/api/videos/#{id}?v=2",
-            v3: "/youtube/v3/videos?part=id%2C+snippet%2C+contentDetails%2C+player%2C+statistics%2C+status%2C+topicDetails",
+            v3: "/youtube/v3/videos?part=id%2C+snippet%2C+contentDetails%2C+player%2C+statistics%2C+status%2C+topicDetails%2C+liveStreamingDetails",
           },
           options
         )

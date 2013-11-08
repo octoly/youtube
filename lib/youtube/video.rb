@@ -85,5 +85,13 @@ module Youtube
       v3_item_attrs[:contentDetails].nil? ? {} : (v3_item_attrs[:contentDetails][:regionRestriction] || {})
     end
 
+    def live_streaming_details
+      v3_item_attrs[:liveStreamingDetails]
+    end
+
+    def live?
+      !live_streaming_details.nil?
+    end
+
   end
 end
