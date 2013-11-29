@@ -24,7 +24,7 @@ module Youtube
           },
           options
         )
-        channel.exists? ? channel : nil
+        channel.valid_response? ? (channel.exists? ? channel : nil) : (raise channel.response.inspect)
       end
     end
   end

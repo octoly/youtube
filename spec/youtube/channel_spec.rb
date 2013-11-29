@@ -7,6 +7,13 @@ describe Youtube::Channel do
     @channel = @client.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
   end
 
+  describe 'channel response' do
+    it 'returns true' do
+      @channel = @client.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
+      expect(@channel.valid_response?).to be_true
+    end
+  end
+
   describe 'channel' do
     it 'returns nil' do
       @channel = @client.channel(id: 'not-valid-id')

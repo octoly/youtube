@@ -5,6 +5,14 @@ require 'youtube/identity'
 module Youtube
   class Channel < Youtube::Identity
 
+    def response
+      @attrs[:v3]
+    end
+
+    def valid_response?
+      (@attrs[:v3] and @attrs[:v3][:kind] == 'youtube#channelListResponse') ? true : false
+    end
+
     def exists?
       (@attrs[:v3][:items] and v3_item_attrs) ? true : false
     end

@@ -24,7 +24,7 @@ module Youtube
           },
           options
         )
-        video.exists? ? video : nil
+        video.valid_response? ? (video.exists? ? video : nil) : (raise video.response.inspect)
       end
     end
   end

@@ -7,6 +7,13 @@ describe Youtube::Video do
     @video = @client.video(id: 'AVjvsgcBKrs')
   end
 
+  describe 'video response' do
+    it 'returns true' do
+      @video = @client.video(id: 'AVjvsgcBKrs')
+      expect(@video.valid_response?).to be_true
+    end
+  end
+
   describe 'video' do
     it 'returns nil' do
       @video = @client.video(id: 'not-valid-id')
