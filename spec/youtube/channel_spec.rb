@@ -64,31 +64,31 @@ describe Youtube::Channel do
 
   describe '#views_count' do
     it 'returns an Integer' do
-      expect(@channel.views_count).to be_a Integer
+      expect(@channel.views_count).to be_an Integer
     end
   end
 
   describe '#videos_count' do
     it 'returns an Integer' do
-      expect(@channel.videos_count).to be_a Integer
+      expect(@channel.videos_count).to be_an Integer
     end
   end
 
   describe '#subscribers_count' do
     it 'returns an Integer' do
-      expect(@channel.subscribers_count).to be_a Integer
+      expect(@channel.subscribers_count).to be_an Integer
     end
   end
 
   describe '#comments_count' do
     it 'returns an Integer' do
-      expect(@channel.comments_count).to be_a Integer
+      expect(@channel.comments_count).to be_an Integer
     end
   end
 
   describe '#topic_ids' do
     it 'returns an Array' do
-      expect(@channel.topic_ids).to be_a Array
+      expect(@channel.topic_ids).to be_an Array
     end
   end
 
@@ -103,7 +103,16 @@ describe Youtube::Channel do
 
   describe '#featured_channels_urls' do
     it 'returns an Aray' do
-      expect(@channel.featured_channels_urls).to be_a Array
+      expect(@channel.featured_channels_urls).to be_an Array
+    end
+  end
+
+  describe '#branding_settings' do
+    before do
+      @channel = @client.channel(id: 'UCxWZOgyYlE3LSmkGiqJRkDg')
+    end
+    it 'returns a Hash' do
+      expect(@channel.branding_settings).to be_a Hash
     end
   end
 

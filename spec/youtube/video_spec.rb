@@ -163,14 +163,14 @@ describe Youtube::Video do
 
   describe '#live_streaming_details present' do
     it 'return an array' do
-      @video = @client.video(id: 'l-M258K_Yac')
+      @video = @client.video(id: 'DIRfRPTGBgE')
       expect(@video.live_streaming_details).to be_a Hash
     end
   end
 
   describe '#live? present' do
     it 'return true' do
-      @video = @client.video(id: 'l-M258K_Yac')
+      @video = @client.video(id: 'DIRfRPTGBgE')
       expect(@video.live?).to be_true
     end
   end

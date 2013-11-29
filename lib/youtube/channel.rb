@@ -61,11 +61,15 @@ module Youtube
       end
     end
 
+    def branding_settings
+      v3_item_attrs[:brandingSettings] || {}
+    end
+
     def featured_channels_urls
-      if v3_item_attrs[:brandingSettings].nil? or v3_item_attrs[:brandingSettings][:channel].nil?
+      if branding_settings[:channel].nil?
         []
       else
-        v3_item_attrs[:brandingSettings][:channel][:featuredChannelsUrls] || []
+        branding_settings[:channel][:featuredChannelsUrls] || []
       end
     end
 

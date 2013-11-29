@@ -12,4 +12,5 @@ describe Youtube::API::Videos do
       expect(video).to be_a Youtube::Video
     end
   end
+
 end
