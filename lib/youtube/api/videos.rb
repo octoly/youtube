@@ -15,16 +15,15 @@ module Youtube
       #   Youtube.video(id: 'ywBRKW93m0I')
       #
       def video(options = {})
-        video = object_from_responses(
+        call_options = [
           Youtube::Video,
           :get,
-          {
-            # v2: "/feeds/api/videos/#{id}?v=2",
-            v3: "/youtube/v3/videos?part=id%2C+snippet%2C+contentDetails%2C+player%2C+statistics%2C+status%2C+topicDetails%2C+liveStreamingDetails",
-          },
+          "/youtube/v3/videos?part=id%2C+snippet%2C+contentDetails%2C+player%2C+statistics%2C+status%2C+topicDetails%2C+liveStreamingDetails",
           options
-        )
-        video.valid_response? ? (video.exists? ? video : nil) : (raise video.response.inspect)
+        ]
+
+        video = object_from_response(*call_options)
+        return (video.valid_response? ? (video.exists? ? video : nil) : (raise video.response.inspect))
       end
     end
   end

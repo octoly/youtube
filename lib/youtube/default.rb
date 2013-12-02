@@ -8,12 +8,11 @@ require 'youtube/version'
 module Youtube
   module Default
     ENDPOINT_OPTIONS = {
-      v2: 'https://gdata.youtube.com',
       v3: 'https://www.googleapis.com',
     }
     CONNECTION_OPTIONS = {
       :headers => {
-#        :accept => 'application/json',
+        # :accept => 'application/json',
         :user_agent => "Youtube Ruby Gem #{Youtube::Version}",
       },
       :request => {
@@ -33,7 +32,7 @@ module Youtube
       # Parse JSON response bodies using MultiJson
       builder.use Youtube::Response::Parse
       # Parse XML response bodies using MultiXml
-#      builder.use Youtube::Response::ParseXml
+      # builder.use Youtube::Response::ParseXml
       # Handle 5xx server responses
       builder.use Youtube::Response::RaiseError, Youtube::Error::ServerError
       # Set Faraday's HTTP adapter

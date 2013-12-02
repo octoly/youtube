@@ -9,15 +9,15 @@ module Youtube
     # @return [Youtube::Identity]
   private
 
-    def v3_item_attrs
-      @attrs[:v3][:items][0]
+    def item_attrs
+      @attrs[:items][0]
     end
 
     def statistics_count attribute
-      if v3_item_attrs[:statistics].nil?
+      if item_attrs[:statistics].nil?
         0
       else
-        v3_item_attrs[:statistics][attribute].to_i
+        item_attrs[:statistics][attribute].to_i
       end
     end
 

@@ -15,13 +15,10 @@ module Youtube
       #   Youtube.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
       #
       def channel(options = {})
-        channel = object_from_responses(
+        channel = object_from_response(
           Youtube::Channel,
           :get,
-          {
-            # v2: "/feeds/api/users/#{id}?v=2",
-            v3: "/youtube/v3/channels?part=id%2C+snippet%2C+contentDetails%2C+brandingSettings%2C+statistics%2C+invideoPromotion%2C+topicDetails",
-          },
+          "/youtube/v3/channels?part=id%2C+snippet%2C+contentDetails%2C+brandingSettings%2C+statistics%2C+invideoPromotion%2C+topicDetails",
           options
         )
         channel.valid_response? ? (channel.exists? ? channel : nil) : (raise channel.response.inspect)
