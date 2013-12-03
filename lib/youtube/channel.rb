@@ -5,40 +5,40 @@ require 'youtube/identity'
 module Youtube
   class Channel < Youtube::Identity
 
-    def response
-      @attrs
+    def self.valid_response?(response)
+      (response and response[:kind] == 'youtube#channelListResponse') ? true : false
     end
 
-    def valid_response?
-      (@attrs and @attrs[:kind] == 'youtube#channelListResponse') ? true : false
+    def valid_item?
+      (@attrs and @attrs[:kind] == 'youtube#channel') ? true : false
     end
 
     def exists?
-      (@attrs[:items] and item_attrs) ? true : false
+      @attrs ? true : false
     end
 
     def id
-      item_attrs[:id]
+      @attrs[:id]
     end
 
     def title
-      item_attrs[:snippet][:title]
+      @attrs[:snippet][:title]
     end
 
     def description
-      item_attrs[:snippet][:description]
+      @attrs[:snippet][:description]
     end
 
     def published_at
-      Time.parse(item_attrs[:snippet][:publishedAt])
+      Time.parse(@attrs[:snippet][:publishedAt])
     end
 
     def thumbnails
-      item_attrs[:snippet][:thumbnails] || {}
+      @attrs[:snippet][:thumbnails] || {}
     end
 
     def image
-      item_attrs[:brandingSettings].nil? ? {} : (item_attrs[:brandingSettings][:image] || {})
+      @attrs[:brandingSettings].nil? ? {} : (@attrs[:brandingSettings][:image] || {})
     end
 
     def views_count
@@ -58,19 +58,19 @@ module Youtube
     end
 
     def topic_ids
-      item_attrs[:topicDetails].nil? ? [] : (item_attrs[:topicDetails][:topicIds] || [])
+      @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:topicIds] || [])
     end
 
     def keywords
-      if item_attrs[:brandingSettings].nil? or item_attrs[:brandingSettings][:channel].nil?
+      if @attrs[:brandingSettings].nil? or @attrs[:brandingSettings][:channel].nil?
         nil
       else
-        item_attrs[:brandingSettings][:channel][:keywords]
+        @attrs[:brandingSettings][:channel][:keywords]
       end
     end
 
     def branding_settings
-      item_attrs[:brandingSettings] || {}
+      @attrs[:brandingSettings] || {}
     end
 
     def featured_channels_urls

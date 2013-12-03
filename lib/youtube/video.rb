@@ -5,44 +5,44 @@ require 'youtube/identity'
 module Youtube
   class Video < Youtube::Identity
 
-    def response
-      @attrs
+    def self.valid_response?(response)
+      (response and response[:kind] == 'youtube#videoListResponse') ? true : false
     end
 
-    def valid_response?
-      (@attrs and @attrs[:kind] == 'youtube#videoListResponse') ? true : false
+    def valid_item?
+      (@attrs and @attrs[:kind] == 'youtube#video') ? true : false
     end
 
     def exists?
-      (@attrs[:items] and item_attrs) ? true : false
+      @attrs ? true : false
     end
 
     def id
-      item_attrs[:id]
+      @attrs[:id]
     end
 
     def channel_id
-      item_attrs[:snippet][:channelId]
+      @attrs[:snippet][:channelId]
     end
 
     def title
-      item_attrs[:snippet][:title]
+      @attrs[:snippet][:title]
     end
 
     def description
-      item_attrs[:snippet][:description]
+      @attrs[:snippet][:description]
     end
 
     def published_at
-      Time.parse(item_attrs[:snippet][:publishedAt])
+      Time.parse(@attrs[:snippet][:publishedAt])
     end
 
     def thumbnails
-      item_attrs[:snippet][:thumbnails] || {}
+      @attrs[:snippet][:thumbnails] || {}
     end
 
     def category_id
-      item_attrs[:snippet][:categoryId].to_i
+      @attrs[:snippet][:categoryId].to_i
     end
 
     def views_count
@@ -66,35 +66,35 @@ module Youtube
     end
 
     def upload_status
-      item_attrs[:status].nil? ? 'unknow' : item_attrs[:status][:uploadStatus]
+      @attrs[:status].nil? ? 'unknow' : @attrs[:status][:uploadStatus]
     end
 
     def privacy_status
-      item_attrs[:status].nil? ? 'unknow' : item_attrs[:status][:privacyStatus]
+      @attrs[:status].nil? ? 'unknow' : @attrs[:status][:privacyStatus]
     end
 
     def topic_ids
-      item_attrs[:topicDetails].nil? ? [] : (item_attrs[:topicDetails][:topicIds] || [])
+      @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:topicIds] || [])
     end
 
     def duration
-      item_attrs[:contentDetails].nil? ? 'unknow' : ISO8601::Duration.new(item_attrs[:contentDetails][:duration]).to_seconds.to_i
+      @attrs[:contentDetails].nil? ? 'unknow' : ISO8601::Duration.new(@attrs[:contentDetails][:duration]).to_seconds.to_i
     end
 
     def public_stats_viewable
-      item_attrs[:status].nil? ? false : (item_attrs[:status][:publicStatsViewable] || false)
+      @attrs[:status].nil? ? false : (@attrs[:status][:publicStatsViewable] || false)
     end
 
     def relevant_topic_ids
-      item_attrs[:topicDetails].nil? ? [] : (item_attrs[:topicDetails][:relevantTopicIds] || [])
+      @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:relevantTopicIds] || [])
     end
 
     def region_restriction
-      item_attrs[:contentDetails].nil? ? {} : (item_attrs[:contentDetails][:regionRestriction] || {})
+      @attrs[:contentDetails].nil? ? {} : (@attrs[:contentDetails][:regionRestriction] || {})
     end
 
     def live_streaming_details
-      item_attrs[:liveStreamingDetails]
+      @attrs[:liveStreamingDetails]
     end
 
     def live?

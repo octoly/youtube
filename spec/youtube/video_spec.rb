@@ -10,7 +10,7 @@ describe Youtube::Video do
   describe 'video response' do
     it 'returns true' do
       @video = @client.video(id: 'AVjvsgcBKrs')
-      expect(@video.valid_response?).to be_true
+      expect(@video.valid_item?).to be_true
     end
   end
 

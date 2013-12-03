@@ -5,7 +5,7 @@ module Youtube
   module Configurable
     extend Forwardable
     attr_writer :developer_key
-    attr_accessor :endpoint_options, :connection_options, :identity_map, :middleware
+    attr_accessor :endpoint_options, :connection_options, :middleware
     def_delegator :options, :hash
 
     class << self
@@ -15,7 +15,6 @@ module Youtube
           :developer_key,
           :endpoint_options,
           :connection_options,
-          :identity_map,
           :middleware,
         ]
       end

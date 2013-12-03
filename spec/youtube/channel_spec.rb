@@ -10,7 +10,7 @@ describe Youtube::Channel do
   describe 'channel response' do
     it 'returns true' do
       @channel = @client.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
-      expect(@channel.valid_response?).to be_true
+      expect(@channel.valid_item?).to be_true
     end
   end
 

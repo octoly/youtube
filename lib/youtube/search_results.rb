@@ -3,6 +3,20 @@ require 'youtube/base'
 module Youtube
   class SearchResults < Youtube::Base
 
+    # Returns a new object based on the response hash
+    #
+    # @param response [Hash]
+    # @return [Youtube::Base]
+    def self.from_response(response={})
+      return unless response[:body]
+      raise response[:body] unless valid_response?(response[:body])
+      object = new(response[:body])
+    end
+
+    def self.valid_response?(response)
+      (response and response[:kind] == 'youtube#searchListResponse') ? true : false
+    end
+
     def results
       @results ||= Array(@attrs[:items]).map do |item|
         item_kind = item[:id][:kind].split('#').last

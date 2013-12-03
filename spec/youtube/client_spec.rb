@@ -34,8 +34,7 @@ describe Youtube::Client do
           connection_options: {:timeout => 10},
           developer_key: 'DK',
           endpoint_options: :v3,
-          middleware: Proc.new{},
-          identity_map: ::Hash,
+          middleware: Proc.new{}
         }
       end
 

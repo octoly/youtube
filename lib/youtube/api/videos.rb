@@ -21,9 +21,11 @@ module Youtube
           "/youtube/v3/videos?part=id%2C+snippet%2C+contentDetails%2C+player%2C+statistics%2C+status%2C+topicDetails%2C+liveStreamingDetails",
           options
         ]
-
-        video = object_from_response(*call_options)
-        return (video.valid_response? ? (video.exists? ? video : nil) : (raise video.response.inspect))
+        if options[:id].is_a? Array
+          objects_from_response(*call_options)
+        else
+          object_from_response(*call_options)
+        end
       end
     end
   end
