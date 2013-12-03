@@ -17,5 +17,10 @@ gem 'youtube', git: 'https://github.com/copyrightly/youtube'
 
 ```ruby
 @yt = Youtube::Client.new(developer_key: 'youtube_api_key')
+
 @video = @yt.video(id: 'fD1eRbq09yU')
+@videos = @yt.video(id: ['fD1eRbq09yU', 'AVjvsgcBKrs'])
+
+@channel = @yt.channel(id: 'UCVrPiUtl29kULN2HIAm244Q')
+@channels = @yt.channel(id: ['UCMmADDDgI-dXaPGoIZ3qIsQ', 'UCVrPiUtl29kULN2HIAm244Q'])
 ```
