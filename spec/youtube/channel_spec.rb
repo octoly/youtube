@@ -60,6 +60,15 @@ describe Youtube::Channel do
     end
   end
 
+  describe '#published_at nil' do
+    before do
+      @channel = @client.channel(id: 'UCBR8-60-B28hp2BmDPdntcQ')
+    end
+    it 'returns nil when published at not provided' do
+      expect(@channel.published_at).to be_nil
+    end
+  end
+
   describe '#thumbnails' do
     before do
       @channel = @client.channel(id: 'UCLCmJiSbIoa_ZFiBOBDf6ZA')

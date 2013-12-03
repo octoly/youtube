@@ -30,7 +30,7 @@ module Youtube
     end
 
     def published_at
-      Time.parse(@attrs[:snippet][:publishedAt])
+      @attrs[:snippet][:publishedAt] ? Time.parse(@attrs[:snippet][:publishedAt]) : nil
     end
 
     def thumbnails
