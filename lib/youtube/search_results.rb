@@ -9,7 +9,7 @@ module Youtube
     # @return [Youtube::Base]
     def self.from_response(response={})
       return unless response[:body]
-      raise response[:body] unless valid_response?(response[:body])
+      raise response[:body].inspect unless valid_response?(response[:body])
       object = new(response[:body])
     end
 
