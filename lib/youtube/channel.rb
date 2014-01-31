@@ -81,5 +81,13 @@ module Youtube
       end
     end
 
+    def related_playlists
+      if @attrs[:contentDetails] and @attrs[:contentDetails][:relatedPlaylists]
+        @attrs[:contentDetails][:relatedPlaylists]
+      else
+        {}
+      end
+    end
+
   end
 end

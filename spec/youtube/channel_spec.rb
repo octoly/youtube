@@ -132,4 +132,13 @@ describe Youtube::Channel do
     end
   end
 
+  describe '#related_playlists' do
+    before do
+      @channel = @client.channel(id: 'UCzzyzxDOgrMBgwPDoXs8R4g')
+    end
+    it 'returns a Hash' do
+      expect(@channel.related_playlists).to be_a Hash
+    end
+  end
+
 end
