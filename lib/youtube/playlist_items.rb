@@ -17,9 +17,9 @@ module Youtube
       (response and response[:kind] == 'youtube#playlistItemListResponse') ? true : false
     end
 
-    def results
+    def video_ids
       @results ||= Array(@attrs[:items]).map do |item|
-        item[:id][:snippet][:resourceId][:videoId]
+        item[:snippet][:resourceId][:videoId]
       end
     end
 
@@ -29,14 +29,6 @@ module Youtube
 
     def total_results
       @attrs[:pageInfo] ? @attrs[:pageInfo][:totalResults].to_i : 0
-    end
-
-    def last_published_at
-      if @attrs[:items] and @attrs[:items].any?
-        Time.parse(@attrs[:items].last[:snippet][:publishedAt])
-      else
-        nil
-      end
     end
 
   end
