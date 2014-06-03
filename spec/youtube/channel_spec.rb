@@ -102,12 +102,6 @@ describe Youtube::Channel do
     end
   end
 
-  describe '#topic_ids' do
-    it 'returns an Array' do
-      expect(@channel.topic_ids).to be_an Array
-    end
-  end
-
   describe '#keywords' do
     before do
       @channel = @client.channel(id: 'UCLCmJiSbIoa_ZFiBOBDf6ZA')

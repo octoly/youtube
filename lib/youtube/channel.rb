@@ -57,10 +57,6 @@ module Youtube
       statistics_count :commentCount
     end
 
-    def topic_ids
-      @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:topicIds] || [])
-    end
-
     def keywords
       if @attrs[:brandingSettings].nil? or @attrs[:brandingSettings][:channel].nil?
         nil

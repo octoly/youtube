@@ -18,7 +18,7 @@ module Youtube
         call_options = [
           Youtube::Channel,
           :get,
-          "/youtube/v3/channels?part=id%2C+snippet%2C+contentDetails%2C+brandingSettings%2C+statistics%2C+invideoPromotion%2C+topicDetails",
+          "/youtube/v3/channels?part=id%2C+snippet%2C+contentDetails%2C+brandingSettings%2C+statistics%2C+invideoPromotion",
           options
         ]
         if options[:id].is_a? Array
