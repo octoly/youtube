@@ -19,7 +19,7 @@ describe Youtube::API::Videos do
 
     it 'returns an array of valid videos' do
       @videos = @client.video(id: ['AVjvsgcBKrs', 'bbEoRnaOIbs'])
-      expect(@videos.first.valid_item?).to be_true
+      expect(@videos.first.valid_item?).to be true
     end
 
     it 'returns an array which holds the same number as ids passed' do

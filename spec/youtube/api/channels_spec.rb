@@ -24,7 +24,7 @@ describe Youtube::API::Channels do
 
     it 'returns an array of valid channels' do
       @channels = @client.channel(id: ['UCMmADDDgI-dXaPGoIZ3qIsQ', 'UCVrPiUtl29kULN2HIAm244Q'])
-      expect(@channels.first.valid_item?).to be_true
+      expect(@channels.first.valid_item?).to be true
     end
 
     it 'returns an array which holds the same number as ids passed' do

@@ -10,7 +10,7 @@ describe Youtube::Video do
   describe 'video response' do
     it 'returns true' do
       @video = @client.video(id: 'AVjvsgcBKrs')
-      expect(@video.valid_item?).to be_true
+      expect(@video.valid_item?).to be true
     end
   end
 
@@ -23,7 +23,7 @@ describe Youtube::Video do
 
   describe '#exists?' do
     it 'returns true' do
-      expect(@video.exists?).to be_true
+      expect(@video.exists?).to be true
     end
   end
 
@@ -32,7 +32,7 @@ describe Youtube::Video do
       expect(@video.id).to be_a String
     end
     it 'returns AVjvsgcBKrs' do
-      expect(@video.id == 'AVjvsgcBKrs').to be_true
+      expect(@video.id == 'AVjvsgcBKrs').to be true
     end
   end
 
@@ -41,7 +41,7 @@ describe Youtube::Video do
       expect(@video.channel_id).to be_a String
     end
     it 'returns UCN-k-F0ZW5ScVeHUriZ7HEA' do
-      expect(@video.channel_id == 'UCN-k-F0ZW5ScVeHUriZ7HEA').to be_true
+      expect(@video.channel_id == 'UCN-k-F0ZW5ScVeHUriZ7HEA').to be true
     end
   end
 
@@ -50,7 +50,7 @@ describe Youtube::Video do
       expect(@video.title).to be_a String
     end
     it "returns 'This is the title of Youtube Video'" do
-      expect(@video.title == 'This is the title of Youtube Video').to be_true
+      expect(@video.title == 'This is the title of Youtube Video').to be true
     end
   end
 
@@ -59,7 +59,7 @@ describe Youtube::Video do
       expect(@video.description).to be_a String
     end
     it "returns 'This is the description of Youtube Video'" do
-      expect(@video.description == 'This is the description of Youtube Video').to be_true
+      expect(@video.description == 'This is the description of Youtube Video').to be true
     end
   end
 
@@ -80,7 +80,7 @@ describe Youtube::Video do
       expect(@video.category_id).to be_a Integer
     end
     it 'returns 27 (Education)' do
-      expect(@video.category_id == 27).to be_true
+      expect(@video.category_id == 27).to be true
     end
   end
 
@@ -164,7 +164,7 @@ describe Youtube::Video do
 
   describe '#live?' do
     it 'return false' do
-      expect(@video.live?).to be_false
+      expect(@video.live?).to be false
     end
   end
 
@@ -178,7 +178,7 @@ describe Youtube::Video do
   describe '#live? present' do
     it 'return true' do
       @video = @client.video(id: 'DIRfRPTGBgE')
-      expect(@video.live?).to be_true
+      expect(@video.live?).to be true
     end
   end
 

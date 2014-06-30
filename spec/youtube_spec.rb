@@ -44,7 +44,7 @@ describe Youtube do
           Youtube.configure do |config|
             config.developer_key = nil
           end
-        }.to_not raise_exception(Youtube::Error::ConfigurationError)
+        }.to_not raise_exception
       end
     end
   end

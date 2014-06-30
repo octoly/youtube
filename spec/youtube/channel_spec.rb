@@ -10,7 +10,7 @@ describe Youtube::Channel do
   describe 'channel response' do
     it 'returns true' do
       @channel = @client.channel(id: 'UCMmADDDgI-dXaPGoIZ3qIsQ')
-      expect(@channel.valid_item?).to be_true
+      expect(@channel.valid_item?).to be true
     end
   end
 
@@ -23,7 +23,7 @@ describe Youtube::Channel do
 
   describe '#exists?' do
     it 'returns true' do
-      expect(@channel.exists?).to be_true
+      expect(@channel.exists?).to be true
     end
   end
 
@@ -32,7 +32,7 @@ describe Youtube::Channel do
       expect(@channel.id).to be_a String
     end
     it 'returns UCMmADDDgI-dXaPGoIZ3qIsQ' do
-      expect(@channel.id == 'UCMmADDDgI-dXaPGoIZ3qIsQ').to be_true
+      expect(@channel.id == 'UCMmADDDgI-dXaPGoIZ3qIsQ').to be true
     end
   end
 
@@ -41,7 +41,7 @@ describe Youtube::Channel do
       expect(@channel.title).to be_a String
     end
     it "returns 'Channel Demo!'" do
-      expect(@channel.title == 'Channel Demo!').to be_true
+      expect(@channel.title == 'Channel Demo!').to be true
     end
   end
 
@@ -50,7 +50,7 @@ describe Youtube::Channel do
       expect(@channel.description).to be_a String
     end
     it "returns 'This channel is a demo for brand channels.'" do
-      expect(@channel.description == 'This channel is a demo for brand channels.').to be_true
+      expect(@channel.description == 'This channel is a demo for brand channels.').to be true
     end
   end
 

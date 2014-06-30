@@ -18,7 +18,7 @@ describe Youtube::API::Search do
 
       it 'returns 50 Video IDs when maxResults=50' do
         search = @client.search(type: 'video', q: 'rails', maxResults: 50)
-        expect(search.results.count == 50).to be_true
+        expect(search.results.count == 50).to be true
       end
 
       it 'returns Video IDs related to a query ordered by date' do
@@ -57,7 +57,7 @@ describe Youtube::API::Search do
 
       it 'returns the total results' do
         search = @client.search(type: 'video', q: 'viklgrbwdvojklbfwd')
-        expect(search.total_results == 0).to be_true
+        expect(search.total_results == 0).to be true
       end
     end
 
