@@ -12,7 +12,7 @@ end
 
 group :test do
   gem 'coveralls', :require => false
-  gem 'rspec'
+  gem 'rspec', '~> 2.13'
   gem 'simplecov', :require => false
 end
 
