@@ -65,24 +65,12 @@ module Youtube
       statistics_count :commentCount
     end
 
-    def upload_status
-      @attrs[:status].nil? ? 'unknow' : @attrs[:status][:uploadStatus]
-    end
-
-    def privacy_status
-      @attrs[:status].nil? ? 'unknow' : @attrs[:status][:privacyStatus]
-    end
-
     def topic_ids
       @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:topicIds] || [])
     end
 
     def duration
       @attrs[:contentDetails].nil? ? 'unknow' : ISO8601::Duration.new(@attrs[:contentDetails][:duration]).to_seconds.to_i
-    end
-
-    def public_stats_viewable
-      @attrs[:status].nil? ? false : (@attrs[:status][:publicStatsViewable] || false)
     end
 
     def relevant_topic_ids
