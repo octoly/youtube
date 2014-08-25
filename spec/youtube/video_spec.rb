@@ -114,18 +114,6 @@ describe Youtube::Video do
     end
   end
 
-  describe '#upload_status' do
-    it 'returns a String' do
-      expect(@video.upload_status).to be_a String
-    end
-  end
-
-  describe '#privacy_status' do
-    it 'returns a String' do
-      expect(@video.privacy_status).to be_a String
-    end
-  end
-
   describe '#topic_ids' do
     it 'returns an Array' do
       expect(@video.topic_ids).to be_a Array
