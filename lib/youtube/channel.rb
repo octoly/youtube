@@ -65,6 +65,10 @@ module Youtube
       end
     end
 
+    def topic_ids
+      @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:topicIds] || [])
+    end
+
     def branding_settings
       @attrs[:brandingSettings] || {}
     end
