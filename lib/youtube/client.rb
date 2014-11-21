@@ -2,6 +2,7 @@ require 'faraday'
 require 'youtube/api/search'
 require 'youtube/api/videos'
 require 'youtube/api/channels'
+require 'youtube/api/playlists'
 require 'youtube/api/playlist_items'
 require 'youtube/configurable'
 require 'youtube/error/client_error'
@@ -12,6 +13,7 @@ module Youtube
     include Youtube::API::Search
     include Youtube::API::Videos
     include Youtube::API::Channels
+    include Youtube::API::Playlists
     include Youtube::API::PlaylistItems
     include Youtube::Configurable
 

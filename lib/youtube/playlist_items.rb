@@ -23,6 +23,12 @@ module Youtube
       end
     end
 
+    def published_at
+      @results ||= Array(@attrs[:items]).map do |item|
+        item[:snippet][:publishedAt]
+      end
+    end
+
     def next_page_token
       @attrs[:nextPageToken]
     end
