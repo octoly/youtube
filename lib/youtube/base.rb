@@ -7,7 +7,7 @@ module Youtube
     # @return [Youtube::Base]
     def self.from_response(response={})
       return unless response[:body]
-      raise response[:body].inspect unless valid_response?(response[:body])
+      raise Youtube::Error::ServerError.from_response(response) unless valid_response?(response[:body])
       object = new(response[:body][:items][0])
       object.exists? ? object : nil
     end
@@ -18,7 +18,7 @@ module Youtube
     # @return [Youtube::Base]
     def self.array_from_response(response={})
       return [] unless response[:body]
-      raise response[:body].inspect unless valid_response?(response[:body])
+      raise Youtube::Error::ServerError.from_response(response) unless valid_response?(response[:body])
       objects = []
       response[:body][:items].each do |item|
         object = new(item)
