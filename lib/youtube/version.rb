@@ -2,7 +2,7 @@ module Youtube
   class Version
     MAJOR = 1 unless defined? Youtube::Version::MAJOR
     MINOR = 0 unless defined? Youtube::Version::MINOR
-    PATCH = 0 unless defined? Youtube::Version::PATCH
+    PATCH = 1 unless defined? Youtube::Version::PATCH
     PRE = nil unless defined? Youtube::Version::PRE
 
     class << self
