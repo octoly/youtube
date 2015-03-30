@@ -4,12 +4,12 @@ describe Youtube::Video do
 
   before do
     @client = Youtube::Client.new(developer_key: 'AIzaSyCIzbuKiXJp4RA9dLlWTarjcH-Eurgzq6U')
-    @video = @client.video(id: 'AVjvsgcBKrs')
+    @video = @client.video(id: 'C0DPdy98e4c')
   end
 
   describe 'video response' do
     it 'returns true' do
-      @video = @client.video(id: 'AVjvsgcBKrs')
+      @video = @client.video(id: 'C0DPdy98e4c')
       expect(@video.valid_item?).to be true
     end
   end
@@ -31,8 +31,8 @@ describe Youtube::Video do
     it 'returns a String' do
       expect(@video.id).to be_a String
     end
-    it 'returns AVjvsgcBKrs' do
-      expect(@video.id == 'AVjvsgcBKrs').to be true
+    it 'returns C0DPdy98e4c' do
+      expect(@video.id == 'C0DPdy98e4c').to be true
     end
   end
 
@@ -40,8 +40,8 @@ describe Youtube::Video do
     it 'returns a String' do
       expect(@video.channel_id).to be_a String
     end
-    it 'returns UCN-k-F0ZW5ScVeHUriZ7HEA' do
-      expect(@video.channel_id == 'UCN-k-F0ZW5ScVeHUriZ7HEA').to be true
+    it 'returns UCHDm-DKoMyJxKVgwGmuTaQA' do
+      expect(@video.channel_id == 'UCHDm-DKoMyJxKVgwGmuTaQA').to be true
     end
   end
 
@@ -49,8 +49,8 @@ describe Youtube::Video do
     it 'returns a String' do
       expect(@video.title).to be_a String
     end
-    it "returns 'This is the title of Youtube Video'" do
-      expect(@video.title == 'This is the title of Youtube Video').to be true
+    it "returns 'TEST VIDEO'" do
+      expect(@video.title == 'TEST VIDEO').to be true
     end
   end
 
@@ -58,8 +58,8 @@ describe Youtube::Video do
     it 'returns a String' do
       expect(@video.description).to be_a String
     end
-    it "returns 'This is the description of Youtube Video'" do
-      expect(@video.description == 'This is the description of Youtube Video').to be true
+    it "returns 'COUNTING LEADER AND TONE'" do
+      expect(@video.description == 'COUNTING LEADER AND TONE').to be true
     end
   end
 
@@ -79,8 +79,8 @@ describe Youtube::Video do
     it 'returns an Integer' do
       expect(@video.category_id).to be_a Integer
     end
-    it 'returns 27 (Education)' do
-      expect(@video.category_id == 27).to be true
+    it 'returns 1 (Film & animation)' do
+      expect(@video.category_id).to equal 1
     end
   end
 

@@ -29,6 +29,12 @@ module Youtube
       end
     end
 
+    def videos
+      @results ||= Array(@attrs[:items]).map do |item|
+        Youtube::Video.new(item)
+      end.compact
+    end
+
     def next_page_token
       @attrs[:nextPageToken]
     end

@@ -8,22 +8,22 @@ describe Youtube::API::Videos do
 
   describe '#list' do
     it "returns a Video" do
-      video = @client.video(id: 'AVjvsgcBKrs')
+      video = @client.video(id: 'C0DPdy98e4c')
       expect(video).to be_a Youtube::Video
     end
 
     it 'returns an array' do
-      @videos = @client.video(id: ['AVjvsgcBKrs', 'bbEoRnaOIbs'])
+      @videos = @client.video(id: ['C0DPdy98e4c', 'bbEoRnaOIbs'])
       expect(@videos).to be_an Array
     end
 
     it 'returns an array of valid videos' do
-      @videos = @client.video(id: ['AVjvsgcBKrs', 'bbEoRnaOIbs'])
+      @videos = @client.video(id: ['C0DPdy98e4c', 'bbEoRnaOIbs'])
       expect(@videos.first.valid_item?).to be true
     end
 
     it 'returns an array which holds the same number as ids passed' do
-      @videos = @client.video(id: ['AVjvsgcBKrs', 'bbEoRnaOIbs'])
+      @videos = @client.video(id: ['C0DPdy98e4c', 'bbEoRnaOIbs'])
       expect(@videos.count == 2)
     end
 

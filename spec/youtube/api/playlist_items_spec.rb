@@ -46,6 +46,13 @@ describe Youtube::API::PlaylistItems do
     it "video_ids returns an array of string" do
       playlist_items = @client.playlist_items(id: 'UUXo0KJ3CT-E2avjl5c7rmf3A7FDeMXlIV')
       expect(playlist_items.video_ids).to be_an Array
+      expect(playlist_items.video_ids.first).to be_a String
+    end
+
+    it "videos returns an array of Youtube::Video objects" do
+      playlist_items = @client.playlist_items(id: 'UUXo0KJ3CT-E2avjl5c7rmf3A7FDeMXlIV')
+      expect(playlist_items.videos).to be_an Array
+      expect(playlist_items.videos.first).to be_a Youtube::Video
     end
 
     it 'video_ids returns empty array if bad id passed' do

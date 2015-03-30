@@ -1,18 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'rake', "~> 10.0.4"
+gem 'rake'
 gem 'yard'
 gem 'iso8601'
 
 group :development do
   gem 'pry'
-  gem 'pry-debugger'
-  gem 'json', '~> 1.7.7'
+  gem 'json'
 end
 
 group :test do
   gem 'coveralls', :require => false
-  gem 'rspec', '~> 2.13'
+  gem 'rspec'
   gem 'simplecov', :require => false
 end
 
