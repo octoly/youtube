@@ -135,4 +135,13 @@ describe Youtube::Channel do
     end
   end
 
+  # describe '#country' do
+  #   before do
+  #     @channel = @client.channel(id: 'UCzzyzxDOgrMBgwPDoXs8R4g')
+  #   end
+  #   it 'returns a String' do
+  #     expect(@channel.country).to be_a String
+  #   end
+  # end
+
 end
