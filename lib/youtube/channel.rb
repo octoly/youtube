@@ -89,9 +89,9 @@ module Youtube
       end
     end
 
-    # def country
-    #   @attrs[:snippet][:country]
-    # end
+    def country
+      @attrs[:snippet][:country]
+    end
 
   end
 end
