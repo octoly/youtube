@@ -157,6 +157,13 @@ describe Youtube::Video do
     end
   end
 
+  describe '#privacy_status present' do
+    it 'return a string' do
+      @video = @client.video(id: 'DIRfRPTGBgE')
+      expect(@video.privacy_status).to be_a String
+    end
+  end
+
   describe '#live? present' do
     it 'return true' do
       @video = @client.video(id: 'DIRfRPTGBgE')

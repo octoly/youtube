@@ -18,7 +18,7 @@ module Youtube
         call_options = [
           Youtube::Video,
           :get,
-          "/youtube/v3/videos?part=id%2C+snippet%2C+contentDetails%2C+player%2C+statistics%2C+topicDetails%2C+liveStreamingDetails",
+          "/youtube/v3/videos?part=id%2C+snippet%2C+contentDetails%2C+player%2C+statistics%2C+topicDetails%2C+liveStreamingDetails%2c+status",
           options
         ]
         if options[:id].is_a? Array

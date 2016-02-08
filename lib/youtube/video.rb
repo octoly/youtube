@@ -85,6 +85,10 @@ module Youtube
       @attrs[:liveStreamingDetails]
     end
 
+    def privacy_status
+      @attrs[:status].nil? ? nil : @attrs[:status][:privacyStatus]
+    end
+
     def live?
       !live_streaming_details.nil?
     end
