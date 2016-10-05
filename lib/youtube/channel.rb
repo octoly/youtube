@@ -53,6 +53,10 @@ module Youtube
       statistics_count :subscriberCount
     end
 
+    def hidden_subscriber_count
+      statistics_value :hiddenSubscriberCount
+    end
+
     def comments_count
       statistics_count :commentCount
     end

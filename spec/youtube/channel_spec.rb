@@ -96,6 +96,12 @@ describe Youtube::Channel do
     end
   end
 
+  describe '#hidden_subscriber_count' do
+    it 'returns false' do
+      expect(@channel.hidden_subscriber_count).to be false
+    end
+  end
+
   describe '#comments_count' do
     it 'returns an Integer' do
       expect(@channel.comments_count).to be_an Integer

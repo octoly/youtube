@@ -16,5 +16,13 @@ module Youtube
       end
     end
 
+    def statistics_value attribute
+      if @attrs[:statistics].nil?
+        nil
+      else
+        @attrs[:statistics][attribute]
+      end
+    end
+
   end
 end
