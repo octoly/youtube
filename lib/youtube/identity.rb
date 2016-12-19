@@ -24,5 +24,13 @@ module Youtube
       end
     end
 
+    def status_value attribute
+      if @attrs[:status].nil?
+        nil
+      else
+        @attrs[:status][attribute]
+      end
+    end
+
   end
 end

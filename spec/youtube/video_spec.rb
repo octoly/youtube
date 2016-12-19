@@ -164,6 +164,48 @@ describe Youtube::Video do
     end
   end
 
+  describe '#privacy_status present' do
+    it 'return a string' do
+      @video = @client.video(id: 'DIRfRPTGBgE')
+      expect(@video.privacy_status).to be_a String
+    end
+  end
+
+  describe '#upload_status present' do
+    it 'return a string' do
+      @video = @client.video(id: 'L6SQbVjpAbY')
+      expect(@video.upload_status).to be_a String
+    end
+  end
+
+  describe '#rejected? present' do
+    it 'return a boolean' do
+      @video = @client.video(id: 'L6SQbVjpAbY')
+      expect(@video.rejected?).to be_in [true, false]
+    end
+  end
+
+  describe '#rejection_reason present' do
+    it 'return a string' do
+      @video = @client.video(id: 'L6SQbVjpAbY')
+      expect(@video.rejection_reason).to be_a String
+    end
+  end
+
+  describe '#license present' do
+    it 'return a string' do
+      @video = @client.video(id: 'DIRfRPTGBgE')
+      expect(@video.license).to be_a String
+    end
+  end
+
+  describe '#privacy_status present' do
+    it 'return a string' do
+      @video = @client.video(id: 'DIRfRPTGBgE')
+      expect(@video.privacy_status).to be_a String
+    end
+  end
+
   describe '#live? present' do
     it 'return true' do
       @video = @client.video(id: 'DIRfRPTGBgE')

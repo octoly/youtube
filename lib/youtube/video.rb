@@ -86,7 +86,22 @@ module Youtube
     end
 
     def privacy_status
-      @attrs[:status].nil? ? nil : @attrs[:status][:privacyStatus]
+      status_value :privacyStatus
+    end
+
+    def upload_status
+      status_value :uploadStatus
+    end
+
+    def rejected?
+      upload_status == 'rejected'
+    end
+    def rejection_reason
+      status_value :rejectionReason
+    end
+
+    def license
+      status_value :license
     end
 
     def live?
