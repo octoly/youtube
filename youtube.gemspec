@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'faraday', ['~> 0.8', '< 0.10']
+  spec.add_dependency 'faraday', ['~> 0.9', '< 0.10']
   spec.add_dependency 'multi_json', '~> 1.0'
   spec.add_dependency 'multi_xml'
   spec.add_dependency 'nokogiri'
