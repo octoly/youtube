@@ -9,3 +9,7 @@ task :default => :spec
 
 require 'yard'
 YARD::Rake::YardocTask.new
+
+task :console do
+  exec "irb -r youtube -I ./lib"
+end
