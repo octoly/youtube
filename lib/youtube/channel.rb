@@ -94,7 +94,11 @@ module Youtube
     end
 
     def country
-      @attrs[:snippet][:country]
+      if @attrs[:snippet][:country]
+        @attrs[:snippet][:country]
+      else
+        @attrs[:brandingSettings].nil? || @attrs[:brandingSettings][:channel].nil? ? nil : @attrs[:brandingSettings][:channel][:country]
+      end
     end
 
   end
