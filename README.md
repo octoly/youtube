@@ -10,7 +10,7 @@ A Ruby interface to the Youtube API
 ## Installation
 
 ```ruby
-gem 'youtube', git: 'https://github.com/copyrightly/youtube'
+gem 'youtube', github: 'octoly/youtube'
 ```
 
 ## Usage
