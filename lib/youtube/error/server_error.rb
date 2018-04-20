@@ -11,7 +11,7 @@ module Youtube
       # @param response [Hash]
       # @return [Youtube::Error]
       def self.from_response(response={})
-        new(nil, response[:response_headers])
+        new(response[:body].to_s, response[:response_headers])
       end
 
       # Initializes a new ServerError object
