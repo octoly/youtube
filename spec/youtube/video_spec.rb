@@ -3,7 +3,7 @@ require 'helper'
 describe Youtube::Video do
 
   before do
-    @client = Youtube::Client.new(developer_key: 'AIzaSyCIzbuKiXJp4RA9dLlWTarjcH-Eurgzq6U')
+    @client = Youtube::Client.new(developer_key: ENV['YOUTUBE_DEVELOPER_KEY'])
     @video = @client.video(id: 'C0DPdy98e4c')
   end
 
@@ -114,21 +114,9 @@ describe Youtube::Video do
     end
   end
 
-  describe '#topic_ids' do
-    it 'returns an Array' do
-      expect(@video.topic_ids).to be_a Array
-    end
-  end
-
   describe '#duration' do
     it 'return an Integer' do
       expect(@video.duration).to be_a Integer
-    end
-  end
-
-  describe '#relevant_topic_ids' do
-    it 'return an array' do
-      expect(@video.relevant_topic_ids).to be_an Array
     end
   end
 
@@ -138,22 +126,9 @@ describe Youtube::Video do
     end
   end
 
-  describe '#live_streaming_details' do
-    it 'return nil' do
-      expect(@video.live_streaming_details).to be_nil
-    end
-  end
-
   describe '#live?' do
     it 'return false' do
       expect(@video.live?).to be false
-    end
-  end
-
-  describe '#live_streaming_details present' do
-    it 'return an array' do
-      @video = @client.video(id: 'DIRfRPTGBgE')
-      expect(@video.live_streaming_details).to be_a Hash
     end
   end
 

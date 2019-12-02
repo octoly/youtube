@@ -3,7 +3,7 @@ require 'helper'
 describe Youtube::API::Channels do
 
   before do
-    @client = Youtube::Client.new(developer_key: 'AIzaSyCIzbuKiXJp4RA9dLlWTarjcH-Eurgzq6U')
+    @client = Youtube::Client.new(developer_key: ENV['YOUTUBE_DEVELOPER_KEY'])
   end
 
   describe '#list' do

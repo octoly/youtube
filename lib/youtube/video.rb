@@ -65,24 +65,12 @@ module Youtube
       statistics_count :commentCount
     end
 
-    def topic_ids
-      @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:topicIds] || [])
-    end
-
     def duration
       @attrs[:contentDetails].nil? ? nil : ISO8601::Duration.new(@attrs[:contentDetails][:duration]).to_seconds.to_i
     end
 
-    def relevant_topic_ids
-      @attrs[:topicDetails].nil? ? [] : (@attrs[:topicDetails][:relevantTopicIds] || [])
-    end
-
     def region_restriction
       @attrs[:contentDetails].nil? ? {} : (@attrs[:contentDetails][:regionRestriction] || {})
-    end
-
-    def live_streaming_details
-      @attrs[:liveStreamingDetails]
     end
 
     def privacy_status
@@ -102,10 +90,6 @@ module Youtube
 
     def license
       status_value :license
-    end
-
-    def live?
-      !live_streaming_details.nil?
     end
 
   end
