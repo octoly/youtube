@@ -60,6 +60,10 @@ module Youtube
         CONNECTION_OPTIONS
       end
 
+      def proxy
+        false
+      end
+
       def identity_map
         IDENTITY_MAP
       end

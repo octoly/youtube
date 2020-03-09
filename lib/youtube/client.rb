@@ -59,6 +59,7 @@ module Youtube
       @connection = begin
         connection_options = {:builder => @middleware}
         connection_options[:ssl] = {:verify => true} if @endpoint[0..4] == 'https'
+        connection_options[:proxy] = @proxy if @proxy
         Faraday.new(@endpoint, @connection_options.merge(connection_options))
       end
     end
