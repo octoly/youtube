@@ -40,8 +40,8 @@ describe Youtube::Channel do
     it 'returns a String' do
       expect(@channel.title).to be_a String
     end
-    it "returns 'Channel Demo!'" do
-      expect(@channel.title == 'Channel Demo!').to be true
+    it "returns 'brandedchanneldemo'" do
+      expect(@channel.title == 'brandedchanneldemo').to be true
     end
   end
 

@@ -8,18 +8,18 @@ describe Youtube::API::PlaylistItems do
 
   describe '#list' do
     it "returns a PlaylistItems by id" do
-      playlist_items = @client.playlist_items(id: 'UUXo0KJ3CT-E2avjl5c7rmf3A7FDeMXlIV')
+      playlist_items = @client.playlist_items(id: 'FLMmADDDgI-dXaPGoIZ3qIsQ')
       expect(playlist_items).to be_a Youtube::PlaylistItems
     end
 
     it "next_page_token returns nil when passing an id" do
-      playlist_items = @client.playlist_items(id: 'UUXo0KJ3CT-E2avjl5c7rmf3A7FDeMXlIV')
+      playlist_items = @client.playlist_items(id: 'FLMmADDDgI-dXaPGoIZ3qIsQ')
       expect(playlist_items.next_page_token).to be_nil
     end
 
     it "video_ids returns an array of one string when passing an id" do
-      playlist_items = @client.playlist_items(id: 'UUXo0KJ3CT-E2avjl5c7rmf3A7FDeMXlIV')
-      expect(playlist_items.video_ids.count == 1).to be true
+      playlist_items = @client.playlist_items(id: 'FLMmADDDgI-dXaPGoIZ3qIsQ')
+      expect(playlist_items.video_ids.count == 6).to be true
     end
 
     it "returns PlaylistItems for playlistId" do
@@ -44,13 +44,13 @@ describe Youtube::API::PlaylistItems do
     end
 
     it "video_ids returns an array of string" do
-      playlist_items = @client.playlist_items(id: 'UUXo0KJ3CT-E2avjl5c7rmf3A7FDeMXlIV')
+      playlist_items = @client.playlist_items(id: 'FLMmADDDgI-dXaPGoIZ3qIsQ')
       expect(playlist_items.video_ids).to be_an Array
       expect(playlist_items.video_ids.first).to be_a String
     end
 
     it "videos returns an array of Youtube::Video objects" do
-      playlist_items = @client.playlist_items(id: 'UUXo0KJ3CT-E2avjl5c7rmf3A7FDeMXlIV')
+      playlist_items = @client.playlist_items(id: 'FLMmADDDgI-dXaPGoIZ3qIsQ')
       expect(playlist_items.videos).to be_an Array
       expect(playlist_items.videos.first).to be_a Youtube::Video
     end

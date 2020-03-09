@@ -6,7 +6,7 @@ gem 'iso8601'
 
 group :development do
   gem 'pry'
-  gem 'json'
+  gem 'json', '1.8.6'
 end
 
 group :test do
