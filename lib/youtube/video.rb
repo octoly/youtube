@@ -66,7 +66,7 @@ module Youtube
     end
 
     def duration
-      @attrs[:contentDetails].nil? ? nil : ISO8601::Duration.new(@attrs[:contentDetails][:duration]).to_seconds.to_i
+      (@attrs[:contentDetails].nil? || @attrs[:contentDetails][:duration].nil?) ? nil : ISO8601::Duration.new(@attrs[:contentDetails][:duration]).to_seconds.to_i
     end
 
     def region_restriction
