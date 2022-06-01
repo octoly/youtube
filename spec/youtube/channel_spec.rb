@@ -45,6 +45,18 @@ describe Youtube::Channel do
     end
   end
 
+  describe '#custom_url' do
+    before do
+      @channel = @client.channel(id: 'UCS_7tplUgzJG4DhA16re5Yg')
+    end
+    it 'returns a String' do
+      expect(@channel.custom_url).to be_a String
+    end
+    it "returns 'BaladeMentaleChaine'" do
+      expect(@channel.custom_url == 'baladementalechaine').to be true
+    end
+  end
+
   describe '#description' do
     it 'returns a String' do
       expect(@channel.description).to be_a String
@@ -60,12 +72,12 @@ describe Youtube::Channel do
     end
   end
 
-  describe '#published_at nil' do
+  describe '#published_at 1970-01-01 00:00:00 UTC' do
     before do
       @channel = @client.channel(id: 'UCBR8-60-B28hp2BmDPdntcQ')
     end
-    it 'returns nil when published at not provided' do
-      expect(@channel.published_at).to be_nil
+    it 'returns 1970-01-01 00:00:00 UTC when published at not provided' do
+      expect(@channel.published_at == Time.parse('1970-01-01 00:00:00 UTC')).to be true
     end
   end
 

@@ -25,6 +25,10 @@ module Youtube
       @attrs[:snippet][:title]
     end
 
+    def custom_url
+      @attrs[:snippet][:customUrl]
+    end
+
     def description
       @attrs[:snippet][:description]
     end
